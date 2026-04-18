@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Ayman Contributions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #f4f1eb;
+      --surface:   #fffef9;
+      --border:    #e4dfd5;
+      --ink:       #1a1714;
+      --ink-light: #6b6560;
+      --accent:    #d4651a;
+      --accent-bg: #fdf0e8;
+      --shadow:    0 2px 12px rgba(0,0,0,.07), 0 1px 3px rgba(0,0,0,.05);
+      --shadow-hover: 0 8px 28px rgba(0,0,0,.11), 0 2px 6px rgba(0,0,0,.07);
+      --radius:    16px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 64px 24px 48px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--ink);
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .header-rule {
+      margin-top: 32px;
+      height: 1px;
+      background: linear-gradient(to right, var(--border), transparent);
+    }
+
+    /* ── Section ── */
+    .section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .section-count {
+      font-size: .8rem;
+      color: var(--ink-light);
+      background: var(--border);
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-weight: 500;
+    }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: box-shadow .2s ease, transform .2s ease;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .card-org {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-bg);
+      border-radius: 6px;
+      padding: 4px 10px;
+      width: fit-content;
+    }
+
+    .card-org svg { flex-shrink: 0; }
+
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    .card-date {
+      font-size: .78rem;
+      color: var(--ink-light);
+      font-weight: 300;
+      letter-spacing: .01em;
+    }
+
+    .card-desc {
+      font-size: .85rem;
+      color: var(--ink-light);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: .01em;
+      transition: opacity .15s ease;
+    }
+
+    .card-link:hover { opacity: .7; }
+
+    /* ── Like button ── */
+    .like-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 50px;
+      padding: 7px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      cursor: pointer;
+      transition: all .18s ease;
+      user-select: none;
+    }
+
+    .like-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-bg);
+    }
+
+    .like-btn.liked {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-bg);
+    }
+
+    .like-btn svg {
+      transition: transform .18s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    .like-btn:active svg {
+      transform: scale(1.35);
+    }
+
+    .like-btn.pop svg {
+      animation: pop .3s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    @keyframes pop {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.45); }
+      100% { transform: scale(1); }
+    }
+
+    /* ── Social bar ── */
+    .social-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      border-radius: 50px;
+      padding: 7px 14px 7px 10px;
+      background: var(--surface);
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--ink);
+      transition: border-color .18s, box-shadow .18s, transform .18s, color .18s;
+      white-space: nowrap;
+    }
+
+    .social-link:hover {
+      border-color: var(--social-color, var(--accent));
+      color: var(--social-color, var(--accent));
+      box-shadow: 0 4px 14px rgba(0,0,0,.08);
+      transform: translateY(-1px);
+    }
+
+    .social-link:hover .social-icon {
+      background: var(--social-color, var(--accent));
+    }
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--border);
+      flex-shrink: 0;
+      transition: background .18s;
+    }
+
+    .social-icon svg { display: block; }
+
+    /* ── "New" badge ── */
+    .new-badge {
+      display: inline-block;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 4px;
+      padding: 2px 6px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 64px;
+      text-align: center;
+      font-size: .75rem;
+      color: var(--ink-light);
+      letter-spacing: .04em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="eyebrow">Open Source</p>
+    <h1>Mohamed Ayman<br><span>Contributions</span></h1>
+
+    <div class="social-bar">
+
+      <!-- LinkedIn -->
+      <a class="social-link" href="https://www.linkedin.com/in/mohamedaymanabdelaziz" target="_blank" rel="noopener noreferrer"
+         style="--social-color:#0A66C2">
+        <span class="social-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45z"/>
+          </svg>
+        </span>
+        LinkedIn
+      </a>
+
+      <!-- ORCID -->
+      <a class="social-link" href="https://orcid.org/0009-0000-9902-8342" target="_blank" rel="noopener noreferrer"
+         style="--social-color:#A6CE39">
+        <span class="social-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+            <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.18 5.2a.93.93 0 1 1 0 1.86.93.93 0 0 1 0-1.86zm-.7 3.16h1.4v10.28h-1.4V8.36zm3.57 0h3.77c3.58 0 5.01 2.56 5.01 5.14 0 2.63-1.56 5.14-5.07 5.14H10.05V8.36zm1.4 1.22v7.84h2.22c2.56 0 3.73-1.67 3.73-3.92 0-2.11-1.07-3.92-3.6-3.92h-2.35z"/>
+          </svg>
+        </span>
+        ORCID
+      </a>
+
+      <!-- GitHub -->
+      <a class="social-link" href="https://github.com/mohamedaymankills" target="_blank" rel="noopener noreferrer"
+         style="--social-color:#24292f">
+        <span class="social-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+            <path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.08-.73.08-.73 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3z"/>
+          </svg>
+        </span>
+        GitHub
+      </a>
+
+      <!-- Medium -->
+      <a class="social-link" href="https://medium.com/@mohamedayman23" target="_blank" rel="noopener noreferrer"
+         style="--social-color:#000000">
+        <span class="social-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+            <path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+          </svg>
+        </span>
+        Medium
+      </a>
+
+      <!-- ResearchGate -->
+      <a class="social-link" href="https://www.researchgate.net/profile/Mohamed-Ayman-49" target="_blank" rel="noopener noreferrer"
+         style="--social-color:#00CCBB">
+        <span class="social-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+            <path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zm-8.1 5.58h1.73v4.57h.05c.27-.5.67-.9 1.18-1.18.5-.28 1.06-.42 1.67-.42 1.18 0 2.12.39 2.8 1.17.68.77 1.02 1.84 1.02 3.19 0 1.43-.37 2.56-1.12 3.38-.74.82-1.74 1.23-2.98 1.23-.58 0-1.12-.13-1.61-.38-.49-.26-.88-.63-1.16-1.12h-.04v1.3h-1.51V5.58zm1.73 7.85c0 .85.22 1.54.66 2.05.44.51 1.02.77 1.74.77.76 0 1.35-.27 1.78-.8.42-.53.63-1.27.63-2.22 0-.88-.2-1.57-.6-2.08-.4-.51-.97-.77-1.7-.77-.76 0-1.37.27-1.83.8-.46.53-.68 1.24-.68 2.25zM6.2 7.43h2.35c.7 0 1.27.18 1.72.55.44.37.67.87.67 1.5 0 .5-.13.93-.4 1.28-.27.35-.64.58-1.13.68v.04c.55.08.99.32 1.3.72.32.4.48.88.48 1.45 0 .74-.26 1.33-.77 1.76-.51.43-1.2.65-2.07.65H6.2V7.43zm1.62 3.56h.63c.4 0 .71-.1.93-.29.22-.2.33-.47.33-.82 0-.34-.1-.6-.3-.78-.2-.18-.5-.27-.88-.27h-.71v2.16zm0 3.77h.77c.46 0 .82-.11 1.07-.34.25-.22.38-.54.38-.96 0-.4-.13-.71-.39-.93-.26-.22-.63-.33-1.1-.33h-.73v2.56z"/>
+          </svg>
+        </span>
+        ResearchGate
+      </a>
+
+      <!-- Udemy -->
+      <a class="social-link" href="https://www.udemy.com/course/posix-multithreading-and-futex-programming-in-c-from-scratch/?srsltid=AfmBOorFE6NDQ59c-LCZXKBb4eTJ_Y4JTwDo286-kznPvA76ZwHOkR82" target="_blank" rel="noopener noreferrer"
+         style="--social-color:#A435F0">
+        <span class="social-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+            <path d="M12 0L5.81 3.573v3.574l6.189-3.574 6.191 3.574V3.573zM5.81 10.148v8.144c0 1.85.589 3.232 1.765 4.098C8.742 23.449 10.370 24 12.005 24c1.557 0 3.150-.544 4.285-1.6 1.132-1.054 1.679-2.606 1.679-4.557v-7.695h-3.653v7.068c0 .872-.18 1.538-.524 1.979-.347.44-.86.661-1.532.661-.74 0-1.284-.242-1.637-.727-.352-.484-.528-1.165-.528-2.025v-8.956H5.81z"/>
+          </svg>
+        </span>
+        Udemy Course
+      </a>
+
+      <!-- GitLab -->
+      <a class="social-link" href="https://gitlab.rtems.org/mohamedayman23" target="_blank" rel="noopener noreferrer"
+         style="--social-color:#FC6D26">
+        <span class="social-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+            <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51 1.22 3.78a.84.84 0 0 1-.3.92z"/>
+          </svg>
+        </span>
+        GitLab
+      </a>
+
+    </div>
+
+    <div class="header-rule"></div>
+  </header>
+
+  <main class="section">
+    <div class="section-header">
+      <span class="section-title">My Contributions</span>
+      <span class="section-count" id="count-badge">0</span>
+    </div>
+    <div class="grid" id="cards-grid"></div>
+  </main>
+
+  <footer>
+    <p>Built with ♥ — likes saved locally in your browser</p>
+  </footer>
+
+  <script>
+    // Newest entries are at the BOTTOM of this array.
+    // They are reversed before rendering so newest appears first.
+    const contributions = [
+      {
+        id: "c1",
+        org: "QEMU",
+        title: "doc: add detailed comment for vhost_user_read_header function",
+        date: "March 2026",
+        desc: "This comment explains the purpose of the function, its parameters, the expected return values, and what each internal step does.",
+        link: "https://lists.gnu.org/archive/html/qemu-devel/2026-03/msg00387.html"
+      },
+      {
+        id: "c2",
+        org: "RTEMS",
+        title: "docs: Fix spelling mistakes in stm32f4 bspstart documentation",
+        date: "March 2026",
+        desc: "Correct several spelling mistakes in the STM32F4 BSP bspstart documentation to improve readability and documentation quality.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1126"
+      },
+      {
+        id: "c3",
+        org: "RTEMS",
+        title: "BUG: Fix AFIO bit clearing in set_remap_config",
+        date: "March 2026",
+        desc: "This change updates it to value &= ~(mask << entry.start); so that only the intended bits are cleared before setting the new value.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1127"
+      },
+      {
+        id: "c4",
+        org: "RTEMS",
+        title: "docs: correct spelling and grammar in stm32f4 headers",
+        date: "March 2026",
+        desc: "Fixed various typos and grammatical errors throughout the documentation in the stm32f4 include folder to improve readability.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1129"
+      },
+      {
+        id: "c5",
+        org: "RTEMS",
+        title: "stm32f4: fix spelling, grammar, and register names in include folder",
+        date: "March 2026",
+        desc: "Fixed various typos and grammatical errors, updated several incorrect register names to ensure technical accuracy.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1130"
+      },
+      {
+        id: "c6",
+        org: "RTEMS",
+        title: "bsps/arm/stm32f4: Fix incorrect bit definition for EXTI line 22",
+        date: "March 2026",
+        desc: "Update STM32F4_EXTI_LINE22 to use BSP_BIT32(22) so that each EXTI line maps to the correct bit in the EXTI registers.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1132"
+      },
+      {
+        id: "c7",
+        org: "RTEMS",
+        title: "bsps/arm/stm32f4: Fix FLASH register macro definitions",
+        date: "March 2026",
+        desc: "Fix incorrect definition of STM32F4_FLASH_CR_SNB which was missing its macro parameter. Also correct the register prefix of OPTSTRT and OPTLOCK which belong to the FLASH_OPTCR register instead of FLASH_CR.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1133"
+      },
+      {
+        id: "c8",
+        org: "RTEMS",
+        title: "bsps/arm/stm32f4: Fix multiple OTGFS header bugs",
+        date: "March 2026",
+        desc: "These fixes resolve copy-paste errors, incorrect field access, macro ordering issues, struct layout problems, and macro naming typos, ensuring the OTGFS headers match the hardware reference manual and operate correctly on STM32F4 devices.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1134"
+      },
+      {
+        id: "c9",
+        org: "RTEMS",
+        title: "bsps/arm/stm32f4: Correct PLS macro Potential Bug in STM32F4 PWR header",
+        date: "March 2026",
+        desc: "STM32F4_PWR_CR_PLS now correctly takes a 'val' argument to avoid compilation errors when selecting PVD level. Verified other CR/CSR bit definitions and comments; no spelling issues.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1135"
+      },
+      {
+        id: "c10",
+        org: "RTEMS",
+        title: "bsps/arm/stm32f4: fix HPRE bitfield Possible Bug in STM32F4 RCC header",
+        date: "March 2026",
+        desc: "Fix HPRE macro in cfgr register: original spanned bits 4–15, accidentally overwriting APB1/APB2 prescaler bits (10–15). Corrected range to 4–7, matching hardware specification.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1136"
+      },
+      {
+        id: "c11",
+        org: "RTEMS",
+        title: "arm/stm32f4: fix SYSCFG register layout",
+        date: "March 2026",
+        desc: "The SYSCFG register block misses two reserved registers between EXTICR4 and CMPCR. This causes CMPCR to be mapped at the wrong offset. Add the missing reserved fields to preserve the correct hardware register layout.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1140"
+      },
+      {
+        id: "c12",
+        org: "RTEMS",
+        title: "arm/stm32f4: extend USART DR field to 9 bits",
+        date: "March 2026",
+        desc: "The STM32F4 USART data register supports up to 9-bit data when CR1.M is set. The current DR macros mask only bits [7:0], which truncates the MSB in 9-bit mode. Extend the field width to [8:0] to match the hardware definition while remaining compatible with 8-bit mode.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1141"
+      },
+      {
+        id: "c13",
+        org: "RTEMS",
+        title: "arm/stm32f4: Fix I2C mutex initialization and potential mutex leak",
+        date: "March 2026",
+        desc: "The mutex protecting the I2C bus was created with an initial count of 0. For a binary semaphore used as a mutex this causes the first rtems_semaphore_obtain() call to block indefinitely since the semaphore starts in the locked state. Initialize the semaphore with a count of 1 so it starts unlocked. Additionally, stm32f4_i2c_process_message() could return early if the STOP bit was set in CR1 without releasing the mutex.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1142"
+      },
+      {
+        id: "c14",
+        org: "RTEMS",
+        title: "stm32f4/usart: fix BRR calculation logical issues",
+        date: "March 2026",
+        desc: "Incorrect fractional divisor formula The current implementation computes the fractional part as: the important part: USARTDIV = mantissa + fraction / a ,This implementation is both mathematically correct and avoids division by zero. When computing the higher approximation of USARTDIV, the current code assigns: div_mantissa_high = div_fraction_low; This appears to be a copy-paste error. The mantissa must be derived from div_mantissa_low, not from the fractional part. and Incorrect mantissa update for high approximation.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1143"
+      },
+      {
+        id: "c15",
+        org: "RTEMS",
+        title: "stm32h7/bspstart: avoid overflow in HAL_GetTick calculation",
+        date: "March 2026",
+        desc: "Original code multiplies ticks since boot by milliseconds per tick using 32-bit arithmetic. A 32-bit millisecond counter overflows every ~49.7 days at 1ms tick. Fix is to cast to 64-bit before multiplication to avoid intermediate overflow, then return as uint32_t.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1144"
+      },
+      {
+        id: "c16",
+        org: "RTEMS",
+        title: "stm32h7/bspstarthook: improve init robustness and diagnostics",
+        date: "March 2026",
+        desc: "Add a timeout to the VOSRDY wait loop in stm32h7_init_power() to avoid a potential infinite busy-wait if the hardware never becomes ready. Use distinct error codes in bsp_reset() for each initialization step to make failures easier to identify during debugging.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1147"
+      },
+      {
+        id: "c17",
+        org: "RTEMS",
+        title: "bsp/stm32h7: fix SDRAM init loops and clean up constants and style",
+        date: "March 2026",
+        desc: "Fix potential issues in SDRAM initialization loops by ensuring the status register value is refreshed before each polling loop. Replace busy-wait delay loop with __NOP() to prevent compiler optimization and improve reliability.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1152"
+      },
+      {
+        id: "c18",
+        org: "RTEMS",
+        title: "stm32h7-hal: Refactor clock and UART handling",
+        date: "March 2026",
+        desc: "Introduce STM32H7_UART_TIMEOUT macro for polled UART operations. Refactor stm32h7_uart_polled_write to use defined timeout constant. Clean up stm32h7_gpio_init function and ensure type safety with RTEMS_DECONST.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1156"
+      },
+      {
+        id: "c19",
+        org: "RTEMS",
+        title: "bsps/arm/stm32h7: group SPI CS GPIO initialization by port",
+        date: "March 2026",
+        desc: "Group SPI chip select (CS) GPIO pins by GPIO port during MSP initialization. This allows multiple CS pins belonging to the same GPIO block to be configured and updated together using a single operation, improving efficiency and aligning better with the STM32 GPIO hardware design.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1161"
+      },
+      {
+        id: "c20",
+        org: "RTEMS",
+        title: "stm32h7/spi-support: correct bugs and improve safety in SPI HAL",
+        date: "March 2026",
+        desc: "Fix transfer loop 'final' condition in stm32h7_spi_apply_postmessage_settings. Reset ctx->error before starting transfers. Prevent division by zero in prescaler calculation. Guard against unsafe usage of _Bitfield_Leading_zeros. Correct return type in stm32h7_register_spi_device.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1162"
+      },
+      {
+        id: "c21",
+        org: "RTEMS",
+        title: "arm/stm32h7: Fix UART CREAD flag logic",
+        date: "April 2026",
+        desc: "This commit fixes the fallback logic to set the mode to UART_MODE_TX when CREAD is not set, ensuring that the console can still transmit data while reception is properly disabled.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1195"
+      },
+      {
+        id: "c22",
+        org: "RTEMS",
+        title: "bsp/stm32h7: fix DMA allocator IRQ handling and stream boundary check",
+        date: "April 2026",
+        desc: "Guard rtems_interrupt_entry_remove() in stm32h7_dma_free_nolock() behind an irq_installed flag to prevent an _Assert failure when freeing a channel whose IRQ entry was never installed. Fix DMA2 stream detection to use >= DMA2_Stream0_BASE instead of > DMA2_BASE.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1196"
+      },
+      {
+        id: "c23",
+        org: "RTEMS",
+        title: "stm32f4/i2c: Implement fast mode up to 400kHz in set_bitrate",
+        date: "April 2026",
+        desc: "Previously, any bitrate above 100kHz returned RTEMS_NOT_IMPLEMENTED. Add fast mode support (DUTY=0, Tlow/Thigh=2) with correct CCR formula (PCLK / (3 * br)) and rise time calculation (TRISE = FPCLK * 300ns + 1), using a uint64_t cast to avoid 32-bit overflow.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1203"
+      },
+      {
+        id: "c24",
+        org: "RTEMS",
+        title: "bsp/stm32f4: compute flash latency based on system clock",
+        date: "April 2026",
+        desc: "Replace the hardcoded flash latency configuration with a calculation based on the system clock frequency. The previous implementation always configured the flash latency to 5 wait states. Introduce a helper function to determine the minimum required flash latency according to the STM32F4 reference manual.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1204"
+      }
+    ];
+
+    // ── Determine which IDs are "new" (most recent month in the array) ──
+    const NEWEST_ID_COUNT = 4; // how many from the end to badge as "New"
+
+    const STORAGE_KEY = "ma_contributions_likes";
+
+    function loadLikes() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+      catch { return {}; }
+    }
+
+    function saveLikes(likes) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(likes));
+    }
+
+    function heartIcon(filled) {
+      return `<svg width="14" height="14" viewBox="0 0 24 24" fill="${filled ? 'currentColor' : 'none'}"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>`;
+    }
+
+    function orgIcon() {
+      return `<svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+      </svg>`;
+    }
+
+    function linkIcon() {
+      return `<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>`;
+    }
+
+    function renderCards() {
+      const likes = loadLikes();
+      const grid = document.getElementById("cards-grid");
+      document.getElementById("count-badge").textContent = contributions.length;
+      grid.innerHTML = "";
+
+      // ── Reverse a shallow copy so newest (last in array) appears first ──
+      const newIds = new Set(contributions.slice(-NEWEST_ID_COUNT).map(c => c.id));
+      const sorted = [...contributions].reverse();
+
+      sorted.forEach(c => {
+        const count = likes[c.id] || 0;
+        const liked = count > 0;
+        const isNew = newIds.has(c.id);
+
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="card-org">${orgIcon()} ${c.org}</div>
+          <div class="card-title">${c.title}${isNew ? '<span class="new-badge">New</span>' : ''}</div>
+          <div class="card-date">${c.date}</div>
+          <div class="card-desc">${c.desc}</div>
+          <div class="card-footer">
+            <a class="card-link" href="${c.link}" target="_blank" rel="noopener noreferrer">
+              View patch ${linkIcon()}
+            </a>
+            <button class="like-btn${liked ? ' liked' : ''}" data-id="${c.id}" aria-label="Like this contribution">
+              ${heartIcon(liked)}
+              <span class="like-count">${count}</span>
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      // Attach events
+      grid.querySelectorAll(".like-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.id;
+          const likes = loadLikes();
+          likes[id] = (likes[id] || 0) + 1;
+          saveLikes(likes);
+
+          const count = likes[id];
+          btn.classList.add("liked");
+          btn.innerHTML = `${heartIcon(true)}<span class="like-count">${count}</span>`;
+          btn.classList.add("pop");
+          btn.dataset.id = id;
+          btn.addEventListener("animationend", () => btn.classList.remove("pop"), { once: true });
+        });
+      });
+    }
+
+    renderCards();
+  </script>
+</body>
+</html>
