@@ -613,6 +613,14 @@
         date: "April 2026",
         desc: "Replace the temporary fallback handle_simple_irq with handle_bad_irq now that the driver operates with a proper hierarchical IRQ setup. This ensures unexpected or unmapped interrupts are clearly flagged instead of being silently handled.",
         link: "https://lore.kernel.org/linux-gpio/20260424115920.54707-1-mohamedaymanworkspace@gmail.com/T/#u"
+      },
+      {
+        id: "c26",
+        org: "Linux Kernel",
+        title: "gpio: ixp4xx: switch to dynamic GPIO base",
+        date: "April 2026",
+        desc: "Most IXP4xx platforms are Device Tree-based, and GPIO consumers use phandle-based descriptors rather than legacy integer GPIO numbers. This switches the gpiochip to dynamic base allocation, aligning with modern gpiolib expectations where GPIO numbers are not globally fixed and may be assigned dynamically.",
+        link: "https://lore.kernel.org/linux-gpio/20260427214311.331996-1-mohamedaymanworkspace@gmail.com/T/#u"
       }      
     ];
 
