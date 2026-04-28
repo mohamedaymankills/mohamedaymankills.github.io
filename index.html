@@ -621,6 +621,14 @@
         date: "April 2026",
         desc: "Most IXP4xx platforms are Device Tree-based, and GPIO consumers use phandle-based descriptors rather than legacy integer GPIO numbers. This switches the gpiochip to dynamic base allocation, aligning with modern gpiolib expectations where GPIO numbers are not globally fixed and may be assigned dynamically.",
         link: "https://lore.kernel.org/linux-gpio/20260427214311.331996-1-mohamedaymanworkspace@gmail.com/T/#u"
+      },
+      {
+        id: "c27",
+        org: "Linux Kernel",
+        title: "ARM: dts: ixp4xx: use phandle-based GPIOs in mi424w",
+        date: "April 2026",
+        desc: "Convert remaining legacy integer GPIO specifiers to phandle-based descriptors in intel-ixp42x-actiontec-mi424wr.dtsi. All other GPIOs in this file already use &gpio0/&gpio1. These are the last remaining legacy users in the IXP4xx DTS files.",
+        link: "https://lore.kernel.org/lkml/20260428191029.809462-1-mohamedaymanworkspace@gmail.com/T/#u"
       }      
     ];
 
