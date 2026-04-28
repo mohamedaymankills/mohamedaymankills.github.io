@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
     :root {
       --bg:        #f4f1eb;
       --surface:   #fffef9;
@@ -22,7 +22,7 @@
       --merged:    #1a7f3c;
       --merged-bg: #e8f5ee;
     }
-
+ 
     body {
       background: var(--bg);
       color: var(--ink);
@@ -31,14 +31,14 @@
       min-height: 100vh;
       padding-bottom: 80px;
     }
-
+ 
     /* ── Header ── */
     header {
       padding: 64px 24px 48px;
       max-width: 860px;
       margin: 0 auto;
     }
-
+ 
     .eyebrow {
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
@@ -48,7 +48,7 @@
       color: var(--accent);
       margin-bottom: 14px;
     }
-
+ 
     h1 {
       font-family: 'Syne', sans-serif;
       font-size: clamp(2rem, 6vw, 3.4rem);
@@ -57,31 +57,31 @@
       letter-spacing: -.02em;
       color: var(--ink);
     }
-
+ 
     h1 span {
       color: var(--accent);
     }
-
+ 
     .header-rule {
       margin-top: 32px;
       height: 1px;
       background: linear-gradient(to right, var(--border), transparent);
     }
-
+ 
     /* ── Section ── */
     .section {
       max-width: 860px;
       margin: 0 auto;
       padding: 0 24px;
     }
-
+ 
     .section-header {
       display: flex;
       align-items: baseline;
       gap: 12px;
       margin-bottom: 28px;
     }
-
+ 
     .section-title {
       font-family: 'Syne', sans-serif;
       font-size: 1.05rem;
@@ -90,7 +90,7 @@
       text-transform: uppercase;
       color: var(--ink);
     }
-
+ 
     .section-count {
       font-size: .8rem;
       color: var(--ink-light);
@@ -99,14 +99,27 @@
       padding: 2px 10px;
       font-weight: 500;
     }
-
+ 
+    .merged-count {
+      font-size: .8rem;
+      color: var(--merged);
+      background: var(--merged-bg);
+      border: 1px solid #b2dfc3;
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+ 
     /* ── Grid ── */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 18px;
     }
-
+ 
     /* ── Card ── */
     .card {
       background: var(--surface);
@@ -119,12 +132,12 @@
       gap: 12px;
       transition: box-shadow .2s ease, transform .2s ease;
     }
-
+ 
     .card:hover {
       box-shadow: var(--shadow-hover);
       transform: translateY(-2px);
     }
-
+ 
     .card-top-row {
       display: flex;
       align-items: center;
@@ -132,7 +145,7 @@
       gap: 8px;
       flex-wrap: wrap;
     }
-
+ 
     .card-org {
       display: inline-flex;
       align-items: center;
@@ -147,9 +160,9 @@
       padding: 4px 10px;
       width: fit-content;
     }
-
+ 
     .card-org svg { flex-shrink: 0; }
-
+ 
     /* ── Merged badge ── */
     .merged-badge {
       display: inline-flex;
@@ -167,11 +180,11 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
-
+ 
     .merged-badge svg {
       flex-shrink: 0;
     }
-
+ 
     .card-title {
       font-family: 'Syne', sans-serif;
       font-size: 1rem;
@@ -179,21 +192,21 @@
       line-height: 1.35;
       color: var(--ink);
     }
-
+ 
     .card-date {
       font-size: .78rem;
       color: var(--ink-light);
       font-weight: 300;
       letter-spacing: .01em;
     }
-
+ 
     .card-desc {
       font-size: .85rem;
       color: var(--ink-light);
       line-height: 1.6;
       font-weight: 300;
     }
-
+ 
     .card-footer {
       margin-top: auto;
       padding-top: 14px;
@@ -203,7 +216,7 @@
       justify-content: space-between;
       gap: 10px;
     }
-
+ 
     .card-link {
       display: inline-flex;
       align-items: center;
@@ -215,9 +228,9 @@
       letter-spacing: .01em;
       transition: opacity .15s ease;
     }
-
+ 
     .card-link:hover { opacity: .7; }
-
+ 
     /* ── Like button ── */
     .like-btn {
       display: inline-flex;
@@ -235,37 +248,37 @@
       transition: all .18s ease;
       user-select: none;
     }
-
+ 
     .like-btn:hover {
       border-color: var(--accent);
       color: var(--accent);
       background: var(--accent-bg);
     }
-
+ 
     .like-btn.liked {
       border-color: var(--accent);
       color: var(--accent);
       background: var(--accent-bg);
     }
-
+ 
     .like-btn svg {
       transition: transform .18s cubic-bezier(.34,1.56,.64,1);
     }
-
+ 
     .like-btn:active svg {
       transform: scale(1.35);
     }
-
+ 
     .like-btn.pop svg {
       animation: pop .3s cubic-bezier(.34,1.56,.64,1);
     }
-
+ 
     @keyframes pop {
       0%   { transform: scale(1); }
       50%  { transform: scale(1.45); }
       100% { transform: scale(1); }
     }
-
+ 
     /* ── Social bar ── */
     .social-bar {
       display: flex;
@@ -273,7 +286,7 @@
       gap: 10px;
       margin-top: 28px;
     }
-
+ 
     .social-link {
       display: inline-flex;
       align-items: center;
@@ -289,18 +302,18 @@
       transition: border-color .18s, box-shadow .18s, transform .18s, color .18s;
       white-space: nowrap;
     }
-
+ 
     .social-link:hover {
       border-color: var(--social-color, var(--accent));
       color: var(--social-color, var(--accent));
       box-shadow: 0 4px 14px rgba(0,0,0,.08);
       transform: translateY(-1px);
     }
-
+ 
     .social-link:hover .social-icon {
       background: var(--social-color, var(--accent));
     }
-
+ 
     .social-icon {
       width: 24px;
       height: 24px;
@@ -312,9 +325,9 @@
       flex-shrink: 0;
       transition: background .18s;
     }
-
+ 
     .social-icon svg { display: block; }
-
+ 
     /* ── "New" badge ── */
     .new-badge {
       display: inline-block;
@@ -329,7 +342,7 @@
       margin-left: 6px;
       vertical-align: middle;
     }
-
+ 
     /* ── Footer ── */
     footer {
       margin-top: 64px;
@@ -341,13 +354,13 @@
   </style>
 </head>
 <body>
-
+ 
   <header>
     <p class="eyebrow">Open Source</p>
     <h1>Mohamed Ayman<br><span>Contributions</span></h1>
-
+ 
     <div class="social-bar">
-
+ 
       <!-- LinkedIn -->
       <a class="social-link" href="https://www.linkedin.com/in/mohamedaymanabdelaziz" target="_blank" rel="noopener noreferrer"
          style="--social-color:#0A66C2">
@@ -358,7 +371,7 @@
         </span>
         LinkedIn
       </a>
-
+ 
       <!-- ORCID -->
       <a class="social-link" href="https://orcid.org/0009-0000-9902-8342" target="_blank" rel="noopener noreferrer"
          style="--social-color:#A6CE39">
@@ -369,7 +382,7 @@
         </span>
         ORCID
       </a>
-
+ 
       <!-- GitHub -->
       <a class="social-link" href="https://github.com/mohamedaymankills" target="_blank" rel="noopener noreferrer"
          style="--social-color:#24292f">
@@ -380,7 +393,7 @@
         </span>
         GitHub
       </a>
-
+ 
       <!-- Medium -->
       <a class="social-link" href="https://medium.com/@mohamedayman23" target="_blank" rel="noopener noreferrer"
          style="--social-color:#000000">
@@ -391,7 +404,7 @@
         </span>
         Medium
       </a>
-
+ 
       <!-- ResearchGate -->
       <a class="social-link" href="https://www.researchgate.net/profile/Mohamed-Ayman-49" target="_blank" rel="noopener noreferrer"
          style="--social-color:#00CCBB">
@@ -402,7 +415,7 @@
         </span>
         ResearchGate
       </a>
-
+ 
       <!-- Udemy -->
       <a class="social-link" href="https://www.udemy.com/course/posix-multithreading-and-futex-programming-in-c-from-scratch/?srsltid=AfmBOorFE6NDQ59c-LCZXKBb4eTJ_Y4JTwDo286-kznPvA76ZwHOkR82" target="_blank" rel="noopener noreferrer"
          style="--social-color:#A435F0">
@@ -413,7 +426,7 @@
         </span>
         Udemy Course
       </a>
-
+ 
       <!-- GitLab -->
       <a class="social-link" href="https://gitlab.rtems.org/mohamedayman23" target="_blank" rel="noopener noreferrer"
          style="--social-color:#FC6D26">
@@ -424,24 +437,28 @@
         </span>
         GitLab
       </a>
-
+ 
     </div>
-
+ 
     <div class="header-rule"></div>
   </header>
-
+ 
   <main class="section">
     <div class="section-header">
       <span class="section-title">My Contributions</span>
       <span class="section-count" id="count-badge">0</span>
+      <span class="merged-count" id="merged-badge">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span id="merged-count-num">0</span> merged
+      </span>
     </div>
     <div class="grid" id="cards-grid"></div>
   </main>
-
+ 
   <footer>
     <p>Built with ♥ — likes saved locally in your eyes</p>
   </footer>
-
+ 
   <script>
     // Newest entries are at the BOTTOM of this array.
     // They are reversed before rendering so newest appears first.
@@ -694,32 +711,32 @@
 
     // ── Determine which IDs are "new" (most recent entries in the array) ──
     const NEWEST_ID_COUNT = 4; // how many from the end to badge as "New"
-
+ 
     const STORAGE_KEY = "ma_contributions_likes";
-
+ 
     function loadLikes() {
       try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
       catch { return {}; }
     }
-
+ 
     function saveLikes(likes) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(likes));
     }
-
+ 
     function heartIcon(filled) {
       return `<svg width="14" height="14" viewBox="0 0 24 24" fill="${filled ? 'currentColor' : 'none'}"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
       </svg>`;
     }
-
+ 
     function orgIcon() {
       return `<svg width="11" height="11" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
       </svg>`;
     }
-
+ 
     function linkIcon() {
       return `<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -727,7 +744,7 @@
         <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
       </svg>`;
     }
-
+ 
     // Checkmark icon for the merged badge
     function mergedIcon() {
       return `<svg width="11" height="11" viewBox="0 0 24 24" fill="none"
@@ -735,22 +752,24 @@
         <polyline points="20 6 9 17 4 12"/>
       </svg>`;
     }
-
+ 
     function renderCards() {
       const likes = loadLikes();
       const grid = document.getElementById("cards-grid");
       document.getElementById("count-badge").textContent = contributions.length;
+      const mergedCount = contributions.filter(c => c.merged).length;
+      document.getElementById("merged-count-num").textContent = mergedCount;
       grid.innerHTML = "";
-
+ 
       // ── Reverse a shallow copy so newest (last in array) appears first ──
       const newIds = new Set(contributions.slice(-NEWEST_ID_COUNT).map(c => c.id));
       const sorted = [...contributions].reverse();
-
+ 
       sorted.forEach(c => {
         const count = likes[c.id] || 0;
         const liked = count > 0;
         const isNew = newIds.has(c.id);
-
+ 
         const card = document.createElement("article");
         card.className = "card";
         card.innerHTML = `
@@ -773,7 +792,7 @@
         `;
         grid.appendChild(card);
       });
-
+ 
       // Attach events
       grid.querySelectorAll(".like-btn").forEach(btn => {
         btn.addEventListener("click", () => {
@@ -781,7 +800,7 @@
           const likes = loadLikes();
           likes[id] = (likes[id] || 0) + 1;
           saveLikes(likes);
-
+ 
           const count = likes[id];
           btn.classList.add("liked");
           btn.innerHTML = `${heartIcon(true)}<span class="like-count">${count}</span>`;
@@ -791,8 +810,10 @@
         });
       });
     }
-
+ 
     renderCards();
   </script>
 </body>
 </html>
+ 
+
