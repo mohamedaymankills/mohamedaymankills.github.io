@@ -706,7 +706,16 @@
         desc: "Convert remaining legacy integer GPIO specifiers to phandle-based descriptors in intel-ixp42x-actiontec-mi424wr.dtsi. All other GPIOs in this file already use &gpio0/&gpio1. These are the last remaining legacy users in the IXP4xx DTS files.",
         link: "https://lore.kernel.org/lkml/20260428191029.809462-1-mohamedaymanworkspace@gmail.com/T/#u",
         merged: false
-      }
+      },
+      {
+        id: "c28",
+        org: "QEMU",
+        title: "bsd-user: remove cached host page size and rely on qemu_real_host_page_size()",
+        date: "April 2026",
+        desc: "The bsd-user implementation previously cached host page size and mask in global variables (qemu_host_page_size and qemu_host_page_mask), which duplicated information already available through qemu_real_host_page_size(). This introduces unnecessary global state and potential inconsistencies if the host page size is queried or changes during initialization.",
+        link: "https://lore.kernel.org/qemu-devel/CANCZdfo4LrwUFxgp5E1ovAZVL1VBEkVknPEzrZH3mxZ02hhnvA@mail.gmail.com/T/#t",
+        merged: false
+      }      
     ];
 
     // ── Determine which IDs are "new" (most recent entries in the array) ──
