@@ -724,6 +724,15 @@
         desc: "Fix incorrect comparison between fdt_getprop() length (bytes) and address cells count. The check now uses ac * sizeof(uint32_t) to avoid reading invalid data. Also change FDT pointer type from const char * to const void * to match libfdt API.",
         link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1227",
         merged: false
+      },
+      {
+        id: "c30",
+        org: "Linux Kerenl",
+        title: "riscv: cpuinfo: Fix NULL dereference and inconsistent error code",
+        date: "May 2026",
+        desc: "Fix a potential NULL pointer dereference in c_show() by ensuring the device tree node returned by of_get_cpu_node() is checked before use. Also replace a non-standard return value (-1) in riscv_of_parent_hartid() with -ENODEV to follow Linux kernel conventions for "not found" error returns.",
+        link: "https://lore.kernel.org/all/20260502160301.453029-1-mohamedaymanworkspace@gmail.com/T/#t",
+        merged: false
       }      
     ];
 
