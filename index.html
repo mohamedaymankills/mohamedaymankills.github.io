@@ -715,6 +715,14 @@
         desc: "The bsd-user implementation previously cached host page size and mask in global variables (qemu_host_page_size and qemu_host_page_mask), which duplicated information already available through qemu_real_host_page_size(). This introduces unnecessary global state and potential inconsistencies if the host page size is queried or changes during initialization.",
         link: "https://lore.kernel.org/qemu-devel/CANCZdfo4LrwUFxgp5E1ovAZVL1VBEkVknPEzrZH3mxZ02hhnvA@mail.gmail.com/T/#t",
         merged: false
+      },
+        id: "c29",
+        org: "RTEMS",
+        title: "riscv: fix FDT length check and FDT pointer type",
+        date: "May 2026",
+        desc: "Fix incorrect comparison between fdt_getprop() length (bytes) and address cells count. The check now uses ac * sizeof(uint32_t) to avoid reading invalid data. Also change FDT pointer type from const char * to const void * to match libfdt API.",
+        link: "https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1227",
+        merged: false
       }      
     ];
 
