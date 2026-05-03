@@ -733,6 +733,15 @@
         desc: "Fix a potential NULL pointer dereference in c show() by ensuring the device tree node returned by of get cpu node() is checked before use. Also replace a non-standard return value (-1) in riscv of parent hartid() with -ENODEV to follow Linux kernel conventions for not found  error returns.",
         link: "https://lore.kernel.org/all/20260502160301.453029-1-mohamedaymanworkspace@gmail.com/T/#t",
         merged: false
+      },
+      {
+        id: "c31",
+        org: "QEMU",
+        title: "riscv: virt: avoid RISCVCPU copy in PMU FDT setup",
+        date: "May 2026",
+        desc: "Use a pointer to the hart instead of copying RISCVCPU when passing pmu_avail_ctrs to riscv_pmu_generate_fdt_node().",
+        link: "https://lore.kernel.org/qemu-devel/20260503180252.1122776-1-mohamedaymanworkspace@gmail.com/T/#u",
+        merged: false
       }      
     ];
 
